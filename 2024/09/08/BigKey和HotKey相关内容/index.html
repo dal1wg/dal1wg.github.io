@@ -1,0 +1,291 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>BigKey和HotKey相关内容 | dale.wang's blog</title><meta name="author" content="SPOE"><meta name="copyright" content="SPOE"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="sahdjaka">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BigKey和HotKey相关内容">
+<meta property="og:url" content="http://59.110.126.69/2024/09/08/BigKey%E5%92%8CHotKey%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/index.html">
+<meta property="og:site_name" content="dale.wang&#39;s blog">
+<meta property="og:description" content="sahdjaka">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2024-09-08T05:08:52.000Z">
+<meta property="article:modified_time" content="2024-09-08T13:33:45.546Z">
+<meta property="article:author" content="SPOE">
+<meta property="article:tag" content="redis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/webicon.png"><link rel="canonical" href="http://59.110.126.69/2024/09/08/BigKey%E5%92%8CHotKey%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'BigKey和HotKey相关内容',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-08 21:33:45'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avater-icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="dale.wang's blog"><span class="site-name">dale.wang's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">BigKey和HotKey相关内容</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-09-08T05:08:52.000Z" title="Created 2024-09-08 13:08:52">2024-09-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-09-08T13:33:45.546Z" title="Updated 2024-09-08 21:33:45">2024-09-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/redis/">redis</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="BigKey和HotKey相关内容"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1-BigKey"><a href="#1-BigKey" class="headerlink" title="1 BigKey"></a><a href="">1 BigKey</a></h1><h2 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a><a href="">1.1 定义</a></h2><p>通常以Key的大小和Key中成员的数量来综合判定，例如：</p>
+<ol>
+<li>Key本身的数据量过大：一个String类型的Key，它的值为5 MB。</li>
+<li>Key中的成员数过多：一个ZSET类型的Key，它的成员数量为10,000个。</li>
+<li>Key中成员的数据量过大：一个Hash类型的Key，它的成员数量虽然只有2,000个但这些成员的Value（值）总大小为100 MB。</li>
+</ol>
+<h2 id="1-2-问题"><a href="#1-2-问题" class="headerlink" title="1.2 问题"></a><a href="">1.2 问题</a></h2><p>在redis中出现BigKey情况会出现以下几种问题：</p>
+<ol>
+<li>客户端执行命令的时长变慢。</li>
+<li>Redis内存达到maxmemory参数定义的上限引发操作阻塞或重要的Key被逐出，甚至引发内存溢出（Out Of Memory）。</li>
+<li>集群架构下，某个数据分片的内存使用率远超其他数据分片，无法使数据分片的内存资源达到均衡。</li>
+<li>对大Key执行读请求，会使Redis实例的带宽使用率被占满，导致自身服务变慢，同时易波及相关的服务。</li>
+<li>对大Key执行删除操作，易造成主库较长时间的阻塞，进而可能引发同步中断或主从切换。</li>
+</ol>
+<h2 id="1-3-原因"><a href="#1-3-原因" class="headerlink" title="1.3 原因"></a><a href="">1.3 原因</a></h2><p>对于redis出现BigKey的情况的原因有未正确使用Redis、业务规划不足、无效数据的堆积、访问量突增等，比如：</p>
+<ol>
+<li>在不适用的场景下使用Redis，易造成Key的value过大，如使用String类型的Key存放大体积二进制文件型数据；</li>
+<li>在不适用的场景下使用Redis，易造成Key的value过大，如使用String类型的Key存放大体积二进制文件型数据；</li>
+<li>未定期清理无效数据，造成如HASH类型Key中的成员持续不断地增加；</li>
+<li>使用LIST类型Key的业务消费侧发生代码故障，造成对应Key的成员只增不减。</li>
+</ol>
+<h2 id="1-4-查找"><a href="#1-4-查找" class="headerlink" title="1.4 查找"></a><a href="">1.4 查找</a></h2><p>redis中提供了几种方案能够帮助我们轻松的找到BigKey，其中有<a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/redis/user-guide/use-the-real-time-key-statistics-feature#task-2096542">实时Top Key统计</a>，<a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/redis/user-guide/offline-key-analysis#concept-ufz-byl-jgb">离线全量Key分析</a>，通过redis-cli的bigkeys参数查找大Key等，下面将几种方法列为表格并分析优缺点及说明。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>优缺点</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/redis/user-guide/use-the-real-time-key-statistics-feature#task-2096542">实时Top Key统计</a>（推荐）</td>
+<td>优点：准确性高、对性能几乎无影响。 缺点：展示的Key数量有一定限制，但能满足常规场景下的需求。</td>
+<td>可实时展示实例中的大Key信息，同时支持查看4天内大Key的历史信息。该功能可帮助您掌握Key在内存中的占用、Key的访问频次等信息，溯源分析问题，为您的优化操作提供数据支持。</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/redis/user-guide/offline-key-analysis#concept-ufz-byl-jgb">离线全量Key分析</a></td>
+<td>优点：可对历史备份数据进行分析，对线上服务无影响。 缺点：时效性差，RDB文件较大时耗时较长。</td>
+<td>对Redis的RDB备份文件进行定制化的分析，帮助您发现实例中的大Key，掌握Key在内存中的占用和分布、Key过期时间等信息，为您的优化操作提供数据支持，帮助您避免因Key倾斜引发的内存不足、性能下降等问题。</td>
+</tr>
+<tr>
+<td>通过redis-cli的bigkeys参数查找大Key</td>
+<td>优点：方便、快速、安全。 缺点：分析结果不可定制化，准确性与时效性差。</td>
+<td>redis-cli提供了bigkeys参数能够以遍历的方式分析Redis实例中的所有Key，并返回Key的整体统计信息与每个数据类型中Top1的大Key。 以bigkeys为例，其仅能分析并输入六种数据类型（STRING、LIST、HASH、SET、ZSET、STREAM），命令示例为redis-cli -h r-***************.redis.rds.aliyuncs.com -a &lt;password&gt; –bigkeys。</td>
+</tr>
+<tr>
+<td>通过Redis内置命令对目标Key进行分析</td>
+<td>优点：方便、对线上服务影响小。 缺点：返回的Key序列化长度并不等同于它在内存空间中的真实长度，因此不够准确，仅可作为参考。</td>
+<td>对不同数据类型的目标Key，分别通过如下风险较低的命令进行分析，来判断目标Key是否符合大Key判定标准。 STRING类型：执行STRLEN命令，返回对应Key的value的字节数。 LIST类型：执行LLEN命令，返回对应Key的列表长度。 HASH类型：执行HLEN命令，返回对应Key的成员数量。 SET类型：执行SCARD命令，返回对应Key的成员数量。 ZSET类型：执行ZCARD命令，返回对应Key的成员数量。 STREAM类型：执行XLEN命令，返回对应Key的成员数量。</td>
+</tr>
+<tr>
+<td>通过redis-rdb-tools工具以定制化方式找出大Key</td>
+<td>优点：支持定制化分析，对线上服务无影响。 缺点：时效性差，RDB文件较大时耗时较长。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/sripathikrishnan/redis-rdb-tools">Redis-rdb-tools</a>是通过Python编写，支持定制化分析Redis RDB快照文件的开源工具。您可以根据您的精细化需求，全面地分析Redis实例中所有Key的内存占用情况，同时也支持灵活地分析查询。</td>
+</tr>
+</tbody></table>
+<h2 id="1-5-优化"><a href="#1-5-优化" class="headerlink" title="1.5 优化"></a><a href="">1.5 优化</a></h2><ol>
+<li>对大Key进行拆分；</li>
+</ol>
+<p>例如将含有数万成员的一个HASH Key拆分为多个HASH Key，并确保每个Key的成员数量在合理范围。在Redis集群架构中，拆分大Key能对数据分片间的内存平衡起到显著作用。在不适用的场景下使用Redis，易造成Key的value过大，如使用String类型的Key存放大体积二进制文件型数据。</p>
+<ol start="2">
+<li>对大Key进行清理；</li>
+</ol>
+<p>将不适用Redis能力的数据存至其它存储，并在Redis中删除此类数据。</p>
+<ol start="3">
+<li>监控Redis的内存水位；</li>
+</ol>
+<p>可以通过监控系统设置合理的Redis内存报警阈值进行提醒，例如Redis内存使用率超过70%、Redis的内存在1小时内增长率超过20%等。通过此类监控手段，可以提前规避许多问题，例如LIST数据类型的消费程序故障造成对应Key的列表数量持续增长，将告警转变为预警从而避免故障的发生。</p>
+<ol start="4">
+<li>对过期数据进行定期清理</li>
+</ol>
+<p>堆积大量过期数据会造成大Key的产生，例如在HASH数据类型中以增量的形式不断写入大量数据而忽略了数据的时效性。可以通过定时任务的方式对失效数据进行清理。</p>
+<h2 id="1-6-实践"><a href="#1-6-实践" class="headerlink" title="1.6 实践"></a><a href="">1.6 实践</a></h2><h3 id="1-6-1-增加BigKey"><a href="#1-6-1-增加BigKey" class="headerlink" title="1.6.1 增加BigKey"></a><a href="">1.6.1 增加BigKey</a></h3><p>使用Python脚本添加大Key，代码所示</p>
+<p>​<img src="/./assets/image-20240908210706-7t9lttq.png" alt="image">​</p>
+<p>运行代码使redis添加大Key</p>
+<h3 id="1-6-2-查找BigKey"><a href="#1-6-2-查找BigKey" class="headerlink" title="1.6.2 查找BigKey"></a><a href="">1.6.2 查找BigKey</a></h3><p>在此将使用通过redis-cli的bigkeys参数查找大Key方法，结果如下所示</p>
+<p>​<img src="/./assets/image-20240908210727-dgi1dzj.png" alt="image">​</p>
+<h3 id="1-6-3-优化BigKey"><a href="#1-6-3-优化BigKey" class="headerlink" title="1.6.3 优化BigKey"></a><a href="">1.6.3 优化BigKey</a></h3><p>在此次实践中将使用监控Redis的内存水位方式来优化大key。在Redis提供的工具来监控和识别大键，以便及时优化，如下：</p>
+<ol>
+<li>INFO命令：使用INFO命令来监控内存使用和命中率，使用redis-cli INFO memory命令后redis内存信息。</li>
+</ol>
+<p>​<img src="/./assets/image-20240908210743-7r436bx.png" alt="image">​</p>
+<ol start="2">
+<li>slowlog：Redis的SLOWLOG命令可以帮助你检测哪些操作占用了较长时间。下图即为使用redis-cli SLOWLOG get 命令的结果图。</li>
+</ol>
+<p>​<img src="/./assets/image-20240908210759-k3qgbkz.png" alt="image">​</p>
+<ol start="3">
+<li>bigkeys：使用redis-cli –bigkeys命令扫描整个数据库，找出大键。</li>
+</ol>
+<h1 id="2-HotKey"><a href="#2-HotKey" class="headerlink" title="2 HotKey"></a><a href="">2 HotKey</a></h1><h2 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a><a href="">2.1 定义</a></h2><p>通常以其接收到的Key被请求频率来判定，例如：</p>
+<ol>
+<li>QPS集中在特定的Key：Redis实例的总QPS（每秒查询率）为10,000，而其中一个Key的每秒访问量达到了7,000。</li>
+</ol>
+<p>a)     带宽使用率集中在特定的Key：对一个拥有上千个成员且总大小为1 MB的HASH Key每秒发送大量的HGETALL操作请求。</p>
+<p>b)     CPU使用时间占比集中在特定的Key：对一个拥有数万个成员的Key（ZSET类型）每秒发送大量的ZRANGE操作请求。</p>
+<h2 id="2-2-问题"><a href="#2-2-问题" class="headerlink" title="2.2 问题"></a><a href="">2.2 问题</a></h2><p>在redis中出现HotKey情况会出现以下几种问题：</p>
+<ol>
+<li>占用大量的CPU资源，影响其他请求并导致整体性能降低。</li>
+<li>集群架构下，产生访问倾斜，即某个数据分片被大量访问，而其他数据分片处于空闲状态，可能引起该数据分片的连接数被耗尽，新的连接建立请求被拒绝等问题。</li>
+<li>在抢购或秒杀场景下，可能因商品对应库存Key的请求量过大，超出Redis处理能力造成超卖。</li>
+<li>热Key的请求压力数量超出Redis的承受能力易造成缓存击穿，即大量请求将被直接指向后端的存储层，导致存储访问量激增甚至宕机，从而影响其他业务。</li>
+</ol>
+<h2 id="2-3-原因"><a href="#2-3-原因" class="headerlink" title="2.3 原因"></a><a href="">2.3 原因</a></h2><p>同BigKey产生原因一样，未正确使用Redis、业务规划不足、无效数据的堆积、访问量突增等会产生热Key，如预期外的访问量陡增，如突然出现的爆款商品、访问量暴涨的热点新闻、直播间某主播搞活动带来的大量刷屏点赞、游戏中某区域发生多个工会之间的战斗涉及大量玩家等。</p>
+<h2 id="2-4-查找"><a href="#2-4-查找" class="headerlink" title="2.4 查找"></a><a href="">2.4 查找</a></h2><p>同上文BigKey一样，redis提供多种方案能查找HotKey。其中<a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/redis/user-guide/use-the-real-time-key-statistics-feature#task-2096542">实时Top Key统计</a>，<a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/redis/user-guide/offline-key-analysis#concept-ufz-byl-jgb">离线全量Key分析</a>，通过redis-cli的HotKeys参数查找热Key的方法与上文BigKey类似。但其还有通过业务层定位热Key，通过<strong>MONITOR</strong>命令找出热Key方法。</p>
+<table>
+<thead>
+<tr>
+<th><strong>方法</strong></th>
+<th><strong>优缺点</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>通过业务层定位热Key</td>
+<td>优点：可准确并及时地定位热Key。 缺点：业务代码复杂度的增加，同时可能会降低一些性能。</td>
+<td>通过在业务层增加相应的代码对Redis的访问进行记录并异步汇总分析。</td>
+</tr>
+<tr>
+<td>通过MONITOR命令找出热Key</td>
+<td>优点：方便、安全。 缺点：会占用CPU、内存、网络资源，时效性与准确性较差。</td>
+<td>Redis的MONITOR命令能够忠实地打印Redis中的所有请求，包括时间信息、Client信息、命令以及Key信息。 在发生紧急情况时，可以通过短暂执行MONITOR命令并将返回信息输入至文件，在关闭MONITOR命令后，对文件中请求进行归类分析，找出这段时间中的热Key。</td>
+</tr>
+</tbody></table>
+<h2 id="2-5-优化"><a href="#2-5-优化" class="headerlink" title="2.5 优化"></a><a href="">2.5 优化</a></h2><ol>
+<li>在Redis集群架构中对热Key进行复制</li>
+</ol>
+<p>在Redis集群架构中，由于热Key的迁移粒度问题，无法将请求分散至其他数据分片，导致单个数据分片的压力无法下降。此时，可以将对应热Key进行复制并迁移至其他数据分片，例如将热Key foo复制出3个内容完全一样的Key并名为foo2、foo3、foo4，将这三个Key迁移到其他数据分片来解决单个数据分片的热Key压力。</p>
+<ol start="2">
+<li>使用读写分离架构</li>
+</ol>
+<p>如果热Key的产生来自于读请求，您可以将实例改造成读写分离架构来降低每个数据分片的读请求压力，甚至可以不断地增加从节点。但是读写分离架构在增加业务代码复杂度的同时，也会增加Redis集群架构复杂度。不仅要为多个从节点提供转发层（如Proxy，LVS等）来实现负载均衡，还要考虑从节点数量显著增加后带来故障率增加的问题。Redis集群架构变更会为监控、运维、故障处理带来了更大的挑战。</p>
+<h2 id="2-6-实践"><a href="#2-6-实践" class="headerlink" title="2.6 实践"></a><a href="">2.6 实践</a></h2><h3 id="2-6-1-增加HotKey"><a href="#2-6-1-增加HotKey" class="headerlink" title="2.6.1 增加HotKey"></a><a href="">2.6.1 增加HotKey</a></h3><p>使用Python脚本添加热Key，代码同上文相同。</p>
+<p>‍</p>
+<h3 id="2-6-2-查找HotKey"><a href="#2-6-2-查找HotKey" class="headerlink" title="2.6.2 查找HotKey"></a><a href="">2.6.2 查找HotKey</a></h3><p>此将使用通过MONITOR命令找出热Key，结果如下图所示</p>
+<p>​<img src="/./assets/image-20240908210819-18zvqi2.png" alt="image">​</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://59.110.126.69">SPOE</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://59.110.126.69/2024/09/08/BigKey%E5%92%8CHotKey%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/">http://59.110.126.69/2024/09/08/BigKey%E5%92%8CHotKey%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/redis/">redis</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/09/08/%E5%9F%BA%E4%BA%8ERedis-shake%E7%9A%84redis%E9%9B%86%E7%BE%A4%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/" title="基于Redis-shake的redis集群数据迁移"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">基于Redis-shake的redis集群数据迁移</div></div></a></div><div class="next-post pull-right"><a href="/2024/09/05/%E5%85%B3%E4%BA%8Esocketaddr%E4%B8%AD%E7%BD%91%E7%BB%9C%E5%AD%97%E8%8A%82%E5%BA%8F/" title="关于socketaddr中网络字节序"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">关于socketaddr中网络字节序</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avater-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">SPOE</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/wxx2786"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wxx2786" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wxx210104@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Welcome to dale.wang's blog.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-BigKey"><span class="toc-text">1 BigKey</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">1.1 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E9%97%AE%E9%A2%98"><span class="toc-text">1.2 问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E5%8E%9F%E5%9B%A0"><span class="toc-text">1.3 原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E6%9F%A5%E6%89%BE"><span class="toc-text">1.4 查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E4%BC%98%E5%8C%96"><span class="toc-text">1.5 优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-%E5%AE%9E%E8%B7%B5"><span class="toc-text">1.6 实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1-%E5%A2%9E%E5%8A%A0BigKey"><span class="toc-text">1.6.1 增加BigKey</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2-%E6%9F%A5%E6%89%BEBigKey"><span class="toc-text">1.6.2 查找BigKey</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-3-%E4%BC%98%E5%8C%96BigKey"><span class="toc-text">1.6.3 优化BigKey</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-HotKey"><span class="toc-text">2 HotKey</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">2.1 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E9%97%AE%E9%A2%98"><span class="toc-text">2.2 问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%8E%9F%E5%9B%A0"><span class="toc-text">2.3 原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E6%9F%A5%E6%89%BE"><span class="toc-text">2.4 查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E4%BC%98%E5%8C%96"><span class="toc-text">2.5 优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E5%AE%9E%E8%B7%B5"><span class="toc-text">2.6 实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-1-%E5%A2%9E%E5%8A%A0HotKey"><span class="toc-text">2.6.1 增加HotKey</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-2-%E6%9F%A5%E6%89%BEHotKey"><span class="toc-text">2.6.2 查找HotKey</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/%E5%9F%BA%E4%BA%8ERedis-shake%E7%9A%84redis%E9%9B%86%E7%BE%A4%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/" title="基于Redis-shake的redis集群数据迁移"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="基于Redis-shake的redis集群数据迁移"/></a><div class="content"><a class="title" href="/2024/09/08/%E5%9F%BA%E4%BA%8ERedis-shake%E7%9A%84redis%E9%9B%86%E7%BE%A4%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/" title="基于Redis-shake的redis集群数据迁移">基于Redis-shake的redis集群数据迁移</a><time datetime="2024-09-08T12:46:28.197Z" title="Created 2024-09-08 20:46:28">2024-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/08/BigKey%E5%92%8CHotKey%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/" title="BigKey和HotKey相关内容"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BigKey和HotKey相关内容"/></a><div class="content"><a class="title" href="/2024/09/08/BigKey%E5%92%8CHotKey%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/" title="BigKey和HotKey相关内容">BigKey和HotKey相关内容</a><time datetime="2024-09-08T05:08:52.000Z" title="Created 2024-09-08 13:08:52">2024-09-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/05/%E5%85%B3%E4%BA%8Esocketaddr%E4%B8%AD%E7%BD%91%E7%BB%9C%E5%AD%97%E8%8A%82%E5%BA%8F/" title="关于socketaddr中网络字节序">关于socketaddr中网络字节序</a><time datetime="2024-09-05T08:28:04.335Z" title="Created 2024-09-05 16:28:04">2024-09-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/05/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="动态规划">动态规划</a><time datetime="2024-09-05T08:11:52.131Z" title="Created 2024-09-05 16:11:52">2024-09-05</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/09/04/hello-world/" title="Hello World">Hello World</a><time datetime="2024-09-04T07:06:19.073Z" title="Created 2024-09-04 15:06:19">2024-09-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By SPOE</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
